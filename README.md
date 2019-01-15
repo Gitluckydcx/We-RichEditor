@@ -7,6 +7,9 @@ https://www.cnblogs.com/shitian-net/p/9366896.html
 
 目前在"Hollow"、"Ho，我的小蠢货"　2位的帮助下，完成了　图文编辑器　的封装。调用者下载此控件，按照example展示例子，迁移到自己的项目中。实现小程序富文本编辑。
 
+![Image text](https://github.com/Gitluckydcx/We-RichEditor/blob/master/Preview-Image/rich1.jpg)
+
+![Image text](https://github.com/Gitluckydcx/We-RichEditor/blob/master/Preview-Image/rich2.jpg)
 ####　软件架构
 本项目在文本编辑的封面图片功能使用的we-cropper进行图片剪切。
 
