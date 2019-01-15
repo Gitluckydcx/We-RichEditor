@@ -1,0 +1,2 @@
+/* example/example.wxss */
+@import './components/We-RichEditor/WeRicheditor.wxss';

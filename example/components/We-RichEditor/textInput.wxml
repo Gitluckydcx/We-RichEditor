@@ -1,0 +1,58 @@
+<!--client/pages/new/textInput.wxml-->
+<template name="textInput">
+<view class="_div data-v-5daef28f content">
+  <view class="menu-wrp11" >
+    <view class="menu-wrp" style="display:flex;flex-direction:row;">
+      <view title="加粗" catchtap="fontEvent" data-eventid="{{'8-'+index}}" data-comkey="{{$k}}" class="menu-list">
+        <image src="./components/We-RichEditor/images/font_bold.png" alt="" class="" style="width:20px;;height:20px;"></image>
+      </view>
+      <view title="放大字体" catchtap="fontEvent" data-eventid="{{'9-'+index}}" data-comkey="{{$k}}" class="menu-list">
+        <image src="./components/We-RichEditor/images/font_size_up.png" alt="" class="" style="width:20px;;height:20px;"></image>
+        
+      </view>
+      <view title="缩小字体" catchtap="fontEvent" data-eventid="{{'10-'+index}}" data-comkey="{{$k}}" class="menu-list">
+        <image src="./components/We-RichEditor/images/font_size_down.png" alt="" class="" style="width:20px;;height:20px;"></image>
+      </view>
+      <!--
+      <view title="删除线" catchtap="fontEvent" data-eventid="{{'11-'+index}}" data-comkey="{{$k}}" class="menu-list">
+        <image src="" alt="" class=" " style="width:20px;;height:20px;"></image>
+      </view>
+      <view title="下划线" catchtap="fontEvent" data-eventid="{{'12-'+index}}" data-comkey="{{$k}}" class="menu-list">
+        <image src="../components/We-RichEditor/images/font-colors.png" alt="" class="" style="width:20px;;height:20px;"></image>
+      </view>
+      -->
+      <!-- view title="居中" catchtap="fontEvent" data-eventid="{{'13-'+index}}" data-comkey="{{$k}}" class="menu-list">
+        <image src="./components/We-RichEditor/images/font-center.png" alt="" class="" style="width:20px;;height:20px;"></image>
+      </view> -->
+      <view title="字体颜色" catchtap="fontEvent" data-eventid="{{'17-'+index}}" data-comkey="{{$k}}" class="menu-list" style=" {{initfontcolor(editorData[i - 1].font)}}">
+          <view catchtap="handleProxy" class="color-box {{[editorData[i - 1].font.showcolor != 1 ? 'hide' : '']}}" data-eventid="{{'16-'+index}}" data-comkey="{{$k}}">
+            <!-- <view class="_div data-v-5daef28f color-title"> 字体颜色 </view> -->
+            <view class="_div data-v-5daef28f color-list">
+              <view class="_div data-v-5daef28f color-item">
+                <label catchtap="handleProxy" data-eventid="{{'14-'+index}}" data-comkey="{{$k}}" class="_span data-v-5daef28f" style=" {{initbgcolor(color)}}"></label>
+              </view>
+           </view>
+            <!-- <view class="_div data-v-5daef28f color-title"> 字体颜色代码 </view> 
+            <view class="_div data-v-5daef28f color-input">
+            <input type="text" value="{{editorData[i-1].font.color}}" bindinput="handleProxy" data-eventid="{{'15-'+index}}" data-comkey="{{$k}}" class="" /> 
+            </view>-->
+          </view>
+      </view>
+    </view>
+    <view id="textareawrap" class="text-box" style="margin-left:10rpx;margin-right:10rpx;border:1px black solid;">
+      <!-- <text>"{{editorData[i-1].content}}"</text> -->
+      <textarea  fixed="true" name="" rows="" cols="" value="{{editContent.content}}" bindinput="textareainput" data-eventid="{{'18-'+index}}" data-comkey="{{$k}}" class="weui-textarea" style="height:280px;{{editContent.font.fontSetting}}" />
+    </view>
+    <view class="_div data-v-5daef28f line"></view>
+  </view>
+
+</view>
+<view class="tabbar">
+  <view class="item" style="width:50%" bindtap="InputCancel">
+    <image class="icon" mode="aspectFit" src="./components/We-RichEditor/images/tabbar/cancel.png"></image>
+  </view>
+  <view class="item" style="width:50%" bindtap="txtInputDone">
+    <image class="icon" mode="aspectFit" src="./components/We-RichEditor/images/tabbar/ok.png"></image>
+  </view>
+</view>
+</template>

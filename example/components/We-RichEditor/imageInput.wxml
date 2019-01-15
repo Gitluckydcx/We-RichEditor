@@ -1,0 +1,44 @@
+<!--client/pages/new/imageInput.wxml-->
+<template name="imageInput">
+	<view style="display: flex;flex-direction: column;">
+		<block wx:if="{{editContent.mytype == 2}}">
+			<view style="margin-top:20rpx;margin-left:10rpx;margin-right:10rpx;border:1px black dashed;" catchtap="chooseImage">
+				<block wx:if="{{editContent.content != ''}}">
+					<view class="pic_list" catchtap="chooseImage">
+						<image class="pic_list_img" src="{{editContent.content}}"  mode="widthFix" ></image>
+					</view>
+				</block>
+				<block wx:if="{{editContent.content == ''}}">
+					<view class="box" style="margin-top:6px;flex-direction: column;">
+						<view class="weui-uploader__input-box" >
+							<view class="weui-uploader__input" catchtap="chooseImage"></view>
+
+						</view>
+						<label style="color: gray;">点击增加图片</label>
+
+					</view>
+				</block>
+
+			</view>
+			<view id="textareawrap" class="text-box" style="margin-top:10rpx;margin-left:10rpx;margin-right:10rpx;border:1px black solid;">
+					<input type="text" cursor-spacing='5' placeholder="图片描述" bindinput="getImageRemark" value="{{editContent.remark}}" />
+				</view>
+		</block>
+		<!-- <block wx:if="{{editContent.mytype == 3}}" >
+			<view style="margin-top:20rpx;margin-left:10rpx;margin-right:10rpx;;">
+				<video src="{{videoContent.content}}" objectFit="cover"></video>
+			</view>
+		</block> -->
+
+	
+		<view class="tabbar">
+		<view class="item" style="width:50%" bindtap="InputCancel">
+		  <image class="icon" mode="aspectFit" src="./components/We-RichEditor/images/tabbar/cancel.png"></image>
+		</view>
+		<view class="item" style="width:50%" bindtap="imageInputDone">
+		  <image class="icon" mode="aspectFit" src="./components/We-RichEditor/images/tabbar/ok.png"></image>
+		</view>
+	  </view>
+
+	</view>
+</template>

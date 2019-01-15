@@ -1,0 +1,25 @@
+/* client/pages/new/textInput.wxss */
+/* @import './templates/confirmAction.wxss'; */
+.menu-wrp {
+    width:100%;
+    margin-top:10rpx;
+    margin-left:180rpx
+  }
+  .menu-wrp:after{
+      content:"";
+      display:block;
+      clear:both;
+  }
+  .menu-list{
+      float:left;
+      width:7%;
+      box-sizing: border-box;
+      padding-bottom:0px;
+      border-width:1px;
+      border-color:black;
+      /*background-color:red;*/
+      border-radius: 10px;
+      margin-left:18rpx
+  }
+
+  

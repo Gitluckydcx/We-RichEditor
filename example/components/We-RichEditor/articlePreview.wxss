@@ -1,0 +1,28 @@
+/* client/pages/new/articlePreview.wxss */
+.weui-article__p .remark {
+    font-size: 13px;
+    color: gray;
+    margin-top: 5px;
+    
+}
+
+.imageremarkcolumn .icon {
+    width: 35rpx;
+    height: 35rpx;
+     margin-top: 2px;
+
+  }
+
+.imageremarkcolumn {
+    display: flex;
+    flex-direction:column;
+    justify-content : center;
+    align-items: center;
+    text-align: center;
+
+}
+
+.imageremarkrow {
+    display: flex;
+    flex-direction:row;
+}

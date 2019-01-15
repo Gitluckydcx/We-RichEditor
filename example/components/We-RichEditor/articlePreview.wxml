@@ -1,0 +1,45 @@
+<!--client/pages/new/articlePreview.wxml-->
+<template name="articlePreview">
+    <view class="page">
+        <!-- <view class="page__hd">
+            <view hover-class="weui-grid_active">
+                <view class="image item-{{index}}" style="background: url({{diary.meta.cover}}?param=50y50) no-repeat; background-size: cover;"></view>
+                <view class="">{{item.diary_Text}}</view>
+            </view>
+        </view> -->
+        <view class="page__bd">
+            <view class="weui-article">
+                <block wx:for="{{layoutList}}" wx:for-item="item" wx:key="index">
+                    <block wx:if="{{item.mytype == 1}}">
+                        <view class='weui-article__p'>
+                            <text decode="{{true}}" style="{{item.font.fontSetting}}"> &nbsp;&nbsp;{{item.content}}
+                            </text>
+                        </view>
+                    </block>
+
+                    <block wx:if="{{item.mytype==2}}">
+                        <view class="weui-article__p imageremarkcolumn">
+                            <image class="weui-article__img" src='{{item.content}}' mode='widthFix'></image>
+                            <block wx:if="{{item.remark != ''}}">
+                                <view class="imageremarkrow">
+                                    <image class="icon" mode="aspectFit" src="./components/We-RichEditor/images/location.png"></image>
+                                    <label class="remark">{{item.remark}}</label>
+                                </view>
+                            </block>
+                        </view>
+                    </block>
+                    <block wx:if="{{item.mytype==3}}">
+                        <view class="weui-article__p">
+                            <video class="album-item" src="{{item.content}}"></video>
+                        </view>
+                    </block>
+                </block>
+            </view>
+        </view>
+        <view class="tabbar">
+            <view class="item" style="width:100%" bindtap="previewDone">
+                <image class="icon" mode="aspectFit" src="./components/We-RichEditor/images/tabbar/ok.png"></image>
+            </view>
+        </view>
+    </view>
+</template>

@@ -1,0 +1,211 @@
+/** new.wxss **/
+@import './textInput.wxss';
+@import './imageInput.wxss';
+@import './articlePreview.wxss';
+
+
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0rpx 0;
+  box-sizing: border-box;
+}
+
+page {
+  font: 14px "Helvetica Neue", "Luxi Sans", "DejaVu Sans", Tahoma, STHeiti;
+  line-height: 1.5;
+  background-color: #F8F8F8;
+  font-size: 16px;
+  font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.clearfix:after {
+  content: '';
+  clear: both;
+  overflow: hidden;
+  height: 0;
+  display: block;
+}
+
+
+
+.common-container {
+  margin: 0.1rem;
+}
+
+.item-group {
+  display: flex;
+  align-items: center;
+}
+
+.album-item {
+  flex-direction: column;
+  margin: 0.1rem;
+  background: rgb(158, 155, 155);
+  width:99%;
+  height: 6.4rem;
+}
+
+.layoutItem{
+  width: 100%;
+  display: flex;
+  height: 80px;
+}
+
+.layoutItem  .iconImage{
+  width: 80px;
+  height: 80px;
+  margin: 2px;
+  flex-grow:0;
+  flex-shrink: 0;
+}
+
+.layoutItem .album-item {
+  flex-direction: column;
+  margin: 0.1rem;
+  background: rgb(158, 155, 155);
+  width:99%;
+  height: 80px;
+}
+
+.layoutItem  .content{
+  margin-top: 10px;
+  margin-right: 10px;
+}
+.layoutItem .content .message{
+  font-size: 16px;
+  color: gray;
+  margin-top: 5px;
+  flex-grow:1;
+  flex-shrink: 1;
+  /* 以下是隐藏多余的字成.... */
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  white-space: normal !important;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.content-text{
+  justify-content: left;
+  align-items: center;
+  display: flex;
+  border-radius: 5px;
+  background: rgb(255, 255, 255);
+  flex-direction:row;
+  font-style:normal;
+
+}
+
+.content-text view {
+  justify-content : right;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size:16px;
+  line-height: 15px;
+
+}
+
+.tabbar {
+  position: fixed;
+  width: 100%;
+  height: 8%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.tabbar .item {
+  width: 33%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.item .icon {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.input-container {
+  height: 80%;
+  background-color: #eceff4;
+  background-image: linear-gradient(#E1E6EA .1em, transparent .1em);
+  background-size: 100% 48rpx;
+  padding: 0;
+  box-sizing: border-box;
+  margin: 0 10rpx;
+}
+
+.input-container input{
+  height: 47rpx;
+  max-height: 47rpx;
+  font-size: 28rpx;
+  margin: 0px;
+}
+
+.action-item, .action-cacel {
+  font-size: 30rpx;
+  color: #39b5de;
+}
+
+.action-head{
+  margin-top: 15px;
+}
+
+.UpDonwicon{
+  width:20px;
+  height:20px;
+  margin-left:12rpx
+}
+
+.addLayouticon{
+  width:20px;
+  height:20px;
+}
+
+.delLayouticon{
+  width:20px;
+  height:20px;
+  margin-right:18rpx
+
+}
+
+.box {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+}
+.coverImage{
+  height:120px;
+  withd:120px;
+  margin: 0 auto;
+  background-size: cover;
+}
+
+/* .coverImage:before{
+  content: '封面';
+  display: flex;
+  align-items: right;
+} */
+
+.coverImage:after{
+  content: '封面';
+  display: flex;
+  align-items: left;
+	justify-content: center;
+
+}
+
+

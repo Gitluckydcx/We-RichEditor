@@ -1,0 +1,6 @@
+<!--example/example.wxml-->
+<import src="./components/We-RichEditor/WeRicheditor.wxml"/> 
+<view>
+    <template is="WeRichEditor" data="{{showMode: showMode, editContent: editContent, fontSetting: fontSetting, diary: diary, layoutList: layoutList}}" />
+</view>
+<!-- <text bindtap="clickme"> clikck me </text> -->

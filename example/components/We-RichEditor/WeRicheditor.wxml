@@ -1,0 +1,153 @@
+<!-- new.wxml -->
+
+<import src="./textInput.wxml" />
+<import src="./articlePreview.wxml" />
+<import src="./imageInput.wxml" />
+
+<!-- 展示的编辑主画面， 由封面、编辑工具栏，内容 三 种元素组成 -->
+<template name="common">
+  <scroll-view class="container" >
+    <view class="common-container">
+      <!-- 封面 -->
+      <view style="border:1px black solid; width:98%;display:flex;flex-direction:row;justify-content: center;lign-items: center;  margin: 0.1rem 0.1rem 0.1rem 0.1rem;"
+        bindinput="goCoverEditPage" data-diaryid="{{diary.diaryID}}">
+        <block wx:if="{{diary.meta.cover != ''}}">
+          <image class="coverImage" mode="aspectFit" src="{{diary.meta.cover}}" catchtap="goCoverEditPage" data-diaryid="{{diary.diaryID}}"
+            style="display:flex;flex-direction:row;" />
+          <!-- <view class="image item-{{index}}" style="background: url({{diary.meta.cover}}?param=50y50) no-repeat; background-size: cover;"></view> -->
+        </block>
+        <block wx:if="{{diary.meta.cover == ''}}">
+          <view class="box" style="margin-top:6px;flex-direction: column;">
+            <view class="weui-uploader__input-box">
+              <view class="weui-uploader__input" bindtap="goCoverEditPage"></view>
+            </view>
+            <label style="color: gray;">点击增加封面图片</label>
+          </view>
+        </block>
+      </view>
+      <!-- 文本编辑 -->
+      <view class="item-group" wx:for="{{layoutList}}" wx:for-item="item">
+        <block wx:if="{{item.mytype == '1'}}">
+          <view style="width:100%">
+            <view class="action-head" style="display:flex;flex-direction:row;justify-content: space-between;">
+              <view id="updownGroup" style="display:flex;flex-direction:row;">
+                <view class="up" catchtap="movehandle" data-eventid="{{'5-'+index}}" data-comkey="{{$k}}">
+                  <image src="./components/We-RichEditor/images/up.png" class="UpDonwicon"  />
+                </view>
+                <view class="" catchtap="movehandle" data-eventid="{{'6-'+index}}" data-comkey="{{$k}}">
+                  <image src="./components/We-RichEditor/images/down.png" class="UpDonwicon"  />
+                </view>
+              </view>
+              <view class="" style="display:flex;justify-content:flex-center" catchtap="schooseNewEditType"
+                data-eventid="{{'7-'+index}}" data-comkey="{{$k}}">
+                <image src="./components/We-RichEditor/images/newEdit.png" class="addLayouticon" />
+              </view>
+              <view class="" style="display:flex;justify-content:flex-end" catchtap="delarrayhandle" data-eventid="{{'7-'+index}}"
+                data-comkey="{{$k}}">
+                <image src="./components/We-RichEditor/images/del.png" class="delLayouticon" />
+              </view>
+            </view>
+            <!-- <view class="album-item content-text"  style="width:200px;flex-grow:0;flex-shrink:0" catchtap="goEditPage" data-eventid="{{'8-'+index}}" data-selectype="TXT">
+              <image src="./components/We-RichEditor/images/mutiText.png" class="" mode="aspectFill" style="width:6.0rem;;height:6.0rem;margin-left:10rpx" />
+              <view class="content-text" style="width:200px;flex-grow:1;flex-shrink:1">{{item.content}}</view>
+            </view> -->
+              <view class='layoutItem' catchtap="goEditPage" data-eventid="{{'8-'+index}}" data-selectype="TXT">
+                <image class="iconImage" src="./components/We-RichEditor/images/mutiText.png" ></image>
+                <view class='content'>
+                  <view class='message'>{{item.content}}</view>
+                </view>
+              </view>
+          </view>
+        </block>
+        <!-- 图片编辑 -->
+        <block wx:elif="{{item.mytype == '2'}}">
+          <view style="width:100%">
+            <view class="action-head" style="display:flex;flex-direction:row;justify-content: space-between;">
+              <view id="updownGroup" style="display:flex;flex-direction:row;">
+                <view class="" catchtap="movehandle" data-eventid="{{'5-'+index}}" data-comkey="{{$k}}">
+                  <image src="./components/We-RichEditor/images/up.png" class="UpDonwicon"  />
+                </view>
+                <view class="" catchtap="movehandle" data-eventid="{{'6-'+index}}" data-comkey="{{$k}}">
+                  <image src="./components/We-RichEditor/images/down.png" class="UpDonwicon"  />
+                </view>
+              </view>
+              <view class="" style="display:flex;justify-content:flex-center" catchtap="schooseNewEditType"
+                data-eventid="{{'7-'+index}}" data-comkey="{{$k}}">
+                <image src="./components/We-RichEditor/images/newEdit.png" class="addLayouticon" />
+              </view>
+              <view class="" style="display:flex;justify-content:flex-end" catchtap="delarrayhandle" data-eventid="{{'8-'+index}}"
+                data-comkey="{{$k}}">
+                <image src="./components/We-RichEditor/images/del.png" class="delLayouticon" />
+              </view>
+            </view>
+   
+            <view class="layoutItem" catchtap="goEditPage" data-eventid="{{'9-'+index}}"
+              data-selectype="IMG">
+              <image class="iconImage" src="./components/We-RichEditor/images/image.png"  mode="aspectFill"  />
+              <image src="{{item.content}}" class="album-item" mode="aspectFill" />
+            </view>
+          </view>
+        </block>
+        <!-- video 编辑 -->
+        <block wx:elif="{{item.mytype == '3'}}">
+          <view style="width:100%">
+            <view class="action-head" style="display:flex;flex-direction:row;justify-content: space-between;">
+              <view id="updownGroup" style="display:flex;flex-direction:row;">
+                <view class="" catchtap="movehandle" data-eventid="{{'5-'+index}}" data-comkey="{{$k}}">
+                  <image src="./components/We-RichEditor/images/up.png" class="UpDonwicon"  />
+                </view>
+                <view class="" catchtap="movehandle" data-eventid="{{'6-'+index}}" data-comkey="{{$k}}">
+                  <image src="./components/We-RichEditor/images/down.png" class="UpDonwicon"  />
+                </view>
+              </view>
+              <view class="" style="display:flex;justify-content:flex-center" catchtap="schooseNewEditType"
+                data-eventid="{{'7-'+index}}" data-comkey="{{$k}}">
+                <image src="./components/We-RichEditor/images/newEdit.png" class="addLayouticon"  />
+              </view>
+              <view class="" style="display:flex;justify-content:flex-end" catchtap="delarrayhandle" data-eventid="{{'7-'+index}}"
+                data-comkey="{{$k}}">
+                <image src="./components/We-RichEditor/images/del.png" class="delLayouticon" />
+              </view>
+            </view>
+            <view style="width:100%" class="album-item content-text" catchtap="goEditPage" data-eventid="{{'8-'+index}}"
+              data-selectype="VIDEO">
+              <image src="./components/We-RichEditor/images/video.png" class="" mode="aspectFill" style="width:6.0rem;;height:6.0rem;margin-left:10rpx" />
+              <video class="album-item" src="{{item.content}}" />
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </scroll-view>
+  <!-- 预览，保存数据到缓存，从缓存读取数据 按钮 -->
+  <view class="tabbar">
+    <view class="item" bindtap="goArticlePrview">
+      <image class="icon" mode="aspectFit" src="./components/We-RichEditor/images/preview.png" />
+    </view>
+    <view class="item" bindtap="writeContent">
+      <image class="icon" mode="aspectFit" src="./components/We-RichEditor/images/save.png" />
+    </view>
+    <view class="item" bindtap="loadContent">
+        <image class="icon" mode="aspectFit" src="./components/We-RichEditor/images/Load-File.png" />
+      </view>
+  </view>
+</template>
+
+<!-- Temlate 框架，调用者入口 -->
+<template name="WeRichEditor">
+  <view style="width:100%;height:100%;">
+    <block wx:if="{{showMode == 'common'}}">
+      <template is="common" data="{{diary: diary, mediaActionSheetItems: mediaActionSheetItems, mediaActionSheetBinds: mediaActionSheetBinds, layoutList: layoutList}}" />
+    </block>
+    <block wx:if="{{showMode == 'textInput'}}">
+      <template is="textInput" data="{{editContent:editContent,fontSetting:fontSetting}}" />
+    </block>
+    <block wx:if="{{showMode == 'imageInput'}}">
+      <template is="imageInput" data="{{editContent:editContent}}" />
+    </block>
+    <block wx:if="{{showMode == 'articlePreview'}}">
+      <template is="articlePreview" data="{{layoutList:layoutList,diary:diary}}" />
+    </block>
+    <loading hidden="{{!showLoading}}" bindchange="hideLoading">{{loadingMessage}}</loading>
+  </view>
+</template>
