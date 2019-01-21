@@ -99,8 +99,6 @@ D:\workSpace\diaryPublishGitee\example　的目录
 
 ####　码云特技
 
-1.　有问题可以加微信咨询，微信：luckydcx
-![Image text](https://github.com/Gitluckydcx/We-RichEditor/blob/master/Preview-Image/luckydcx_wx.jpg)
+1.　
+<img src="https://github.com/Gitluckydcx/We-RichEditor/blob/master/Preview-Image/luckydcx_wx.jpg" width="288">
 2.<img src="https://github.com/favicon.ico" width="48">
-3.
-<img src="https://github.com/Gitluckydcx/We-RichEditor/blob/master/Preview-Image/luckydcx_wx.jpg" width="148">
